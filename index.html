@@ -1,0 +1,12 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Open note</title>
+<style>body{font:20px -apple-system,sans-serif;display:flex;min-height:90vh;align-items:center;justify-content:center;margin:0}
+a{background:#f5c400;color:#000;padding:16px 28px;border-radius:14px;text-decoration:none;font-weight:600}</style></head>
+<body><a id="go" href="#">Open in Notes</a>
+<script>
+// note-link v1: turns a tappable https link into the Apple Notes deep link. Carries only note IDs, never content.
+var q=new URLSearchParams(location.search),n=q.get("n")||"",o=q.get("o")||"";
+if(/^[0-9A-F-]{36}$/i.test(n)){var u="applenotes:note/"+n+(/^_?[0-9a-f]+$/i.test(o)?"?ownerIdentifier="+o:"");
+document.getElementById("go").href=u;location.replace(u);}
+else{document.body.textContent="This link is missing its note.";}
+</script></body></html>
